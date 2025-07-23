@@ -1,6 +1,16 @@
+use std::io;
 fn main() {
-    let mut s = String::from("hello");
-    s = String::from("kys");
+    let mut s = String::new();
 
-    println!("{s} world" );
+    println!("enter your name");
+
+    io::stdin()
+        .read_line(&mut s)
+        .expect("failed to read line");
+
+    greet(s);
+}
+
+fn greet(s: String) {
+    println!("Welcome {}", s);
 }
